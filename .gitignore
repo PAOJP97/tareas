@@ -1,5 +1,7 @@
 .angular/
 node_modules/
+.firebase/
+dist/
 
 environment.development.ts
 environment.ts
