@@ -1,0 +1,6 @@
+export enum AUTH_CODES {
+    OK,
+    GENERAL_ERROR,
+    ALREADY_EXISTS_ERROR,
+    CREDENTIALS_ERROR
+}

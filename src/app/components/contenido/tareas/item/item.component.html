@@ -1,0 +1,33 @@
+<div *ngIf="!item.addNew" class="item-content">
+    <div class="little-buttons">
+        <p-button icon="pi pi-pencil" [rounded]="true" [text]="true" [raised]="true" (onClick)="editItem()"></p-button>
+        <p-button icon="pi pi-trash" [rounded]="true" [text]="true" [raised]="true" (onClick)="deleteItem()"></p-button>
+    </div>
+    <p-card>
+        <div class="item-title" [ngStyle]="{'background': (item.status === 'Completada')? '#09b614' : '#f9ba32' }">
+            <span>{{item.title}}</span>
+        </div>
+        <div class="item-organizer">
+            <div class="item-description">
+                <span>{{item.description}}</span>
+            </div>
+            <div class="item-dueDate">
+                Fecha de vencimiento: 
+                <span>{{item.dueDate | date:  'dd/MM/yyyy'  }}</span>
+            </div>
+        </div>
+    </p-card>
+</div>
+
+<div *ngIf="item.addNew" class="item-new">
+    <p-card>
+        <div class="centro-pantalla">
+            <div class="centro-pantalla" style="justify-content: flex-end;">
+                <span>Cree una nueva tarea</span>
+            </div>
+            <div class="centro-pantalla" style="justify-content: flex-start;">
+                <p-button icon="pi pi-plus" [rounded]="true" [text]="true" [raised]="true" (onClick)="addItem()"></p-button>
+            </div>
+        </div>
+    </p-card>
+</div>

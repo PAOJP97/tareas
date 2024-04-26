@@ -1,0 +1,13 @@
+<div class="centro-pantalla">
+    <div class="center-text">
+        <span *ngIf="!data" class="titulo-panel">AÚN NO TIENE TAREAS</span>
+        <span *ngIf="data" class="titulo-panel">ESTADÍSTICAS</span>
+    </div>
+    <div *ngIf="!data" style="width: 50%;" class="center-text">
+        <span>En esta sección podrá visualizar las estadísticas del estado actual de sus tareas. Para obtener estos beneficios empiece a crear sus tareas.</span>
+    </div>
+    <div *ngIf="!data" style="margin-top: 40px;" class="center-text">
+        <p-button icon="pi pi-plus" [rounded]="true" [text]="true" [raised]="true" severity="info" (onClick)="navigateToTareas()"></p-button>
+    </div>
+    <p-chart *ngIf="data" type="pie" [data]="data" [options]="options"></p-chart>
+</div>

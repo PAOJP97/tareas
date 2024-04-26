@@ -1,0 +1,13 @@
+<div class="vertical side-menu">
+    <div class="titulo-menu center-text">
+        <span class="white-text">MENÚ</span>
+    </div>
+    <div *ngFor="let menu of menus" class="horizontal menu-item" (click)="notifyMenuClick(menu)">
+        <div>
+            <span class="white-text">{{menu.nombre}}</span>
+        </div>
+        <div>
+            <i class="pi {{menu.icono}}"></i>
+        </div>
+    </div>
+</div>

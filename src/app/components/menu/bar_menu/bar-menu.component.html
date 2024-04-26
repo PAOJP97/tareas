@@ -1,0 +1,9 @@
+<div class="horizontal barra-header">
+    <div class="imagen-header">
+        <img src="../../../../assets/task-management.svg">
+    </div>
+    <div>
+        <p-button icon="pi pi-user" [rounded]="true" [text]="true" [raised]="true" severity="info" (click)="menu.toggle($event)"></p-button>
+        <p-menu #menu [model]="items" [popup]="true"></p-menu>
+    </div>
+</div>

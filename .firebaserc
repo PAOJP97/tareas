@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "tasks-a20a1": {
+      "hosting": {
+        "tasksfe": [
+          "tasks-a20a1"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "tasks-a20a1"
+  }
+}

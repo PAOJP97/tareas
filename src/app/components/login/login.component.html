@@ -1,0 +1,32 @@
+<div class="horizontal">
+    <div class="tamano-imagen">
+        <img src="../../../assets/image.png">
+    </div>
+
+    <div class="vertical ancho-contenido alinear-verticalcontenido alinear-horizontalcontenido">
+
+        <div>
+            <img src="../../../assets/images.png">
+        </div>
+        <div>
+            <span class="p-float-label">
+                <input type="text" pInputText id="username" [(ngModel)]="loginObj.username" maxlength="16" minlength="6" [pKeyFilter]="'alphanum'" />
+                <label for="username">Usuario</label>
+            </span>
+        </div>
+        <div>
+            <span class="p-float-label">
+                <input type="password" pInputText id="password" [(ngModel)]="loginObj.password" maxlength="16" minlength="6" [pKeyFilter]="'alphanum'"/>
+                <label for="password">Contraseña</label>
+            </span>
+        </div>
+        <div>
+            <p-button label="Iniciar Sesión" [disabled]="!validateForm()" (onClick)="login($event)" [raised]="true"></p-button>
+        </div>
+        <div class="alinear-verticalcontenido">
+            <span class="alinear-verticalcontenido" style="align-items: center; margin-right: 10px;">Si no tiene una cuenta haga clic</span>
+            <p-button label="Aquí" [link]="true" (onClick)="navigateToSignUp($event)"></p-button>
+        </div>
+        
+    </div>
+</div>

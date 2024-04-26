@@ -1,0 +1,33 @@
+<div class="vertical form">
+    <div class="form-title">
+        <span>{{item? 'Editar tarea' : 'Nueva tarea'}}</span>
+    </div>
+    <div class="form-inputs">
+        <div>
+            <span class="p-float-label">
+                <input pInputText id="title" [(ngModel)]="tarea.title" />
+                <label for="title">Título</label>
+            </span>
+        </div>
+        <div>
+            <span class="p-float-label">
+                <textarea rows="4" cols="45" pInputTextarea [autoResize]="true"  id="description" [(ngModel)]="tarea.description" ></textarea>
+                <label for="description">Descripción</label>
+            </span>
+        </div>
+        <div style="display: flex; justify-content: center;">
+            <span class="p-float-label">
+                <p-calendar id="dueDate" [(ngModel)]="tarea.dueDate"></p-calendar>
+                <label for="dueDate">Fecha de vencimiento</label>
+            </span>
+        </div>
+        <div *ngIf="item" class="checkbox">
+            <p-checkbox id="status" [binary]="true" [(ngModel)]="completado"></p-checkbox>
+            <label for="status">¿Completado?</label>
+        </div>
+    </div>
+    <div class="form-options">
+        <p-button icon="pi pi-times" [rounded]="true" [text]="true" [raised]="true" (onClick)="closeForm()"></p-button>
+        <p-button icon="pi pi-check" [rounded]="true" [text]="true" [raised]="true" (onClick)="executeAction()"></p-button>
+    </div>
+</div>

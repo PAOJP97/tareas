@@ -1,0 +1,43 @@
+<p-toolbar>
+    <div style="width: 50%;">
+        <span class="p-float-label p-input-icon-right" style="width: 100%;">
+            <i class="pi pi-search"></i>
+            <input id="texto" type="text" pInputText [(ngModel)]="searchInput" style="width: 100%;"/>
+            <label for="texto">Titulo o Descripcion</label>
+        </span>
+    </div>
+    <div>
+        <span class="p-float-label">
+            <p-calendar id="fecha" [(ngModel)]="searchDueDate"></p-calendar>
+            <label for="fecha">Fecha de vencimiento</label>
+        </span>
+    </div>
+</p-toolbar>
+
+<div class="row" style="margin: 10px;">
+    <div *ngFor="let task of tasks" class="col-4">
+        <tareas-item [item]="task" (onAddItem)="displayForm($event)" (onEditItem)="displayForm($event)" (onDeleteItem)="displayDeleteConfirmation($event)"></tareas-item>
+    </div>
+</div>
+
+<p-sidebar [(visible)]="showForm" position="right" [style]="{'width': '400px'}">
+    <ng-template pTemplate="headless">
+        <formulario (onCloseForm)="closeForm($event)" [item]="selectedItem"></formulario>
+    </ng-template>
+</p-sidebar>
+
+<p-confirmDialog #cd>
+    <ng-template pTemplate="message" let-message>
+        <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 10px;">
+            <div>
+                <span>¿Está seguro de eliminar esta tarea?</span>
+            </div>
+            <div style="width: 100%; display: flex; gap: 10px; justify-content: space-around;">
+                <p-button icon="pi pi-times" [rounded]="true" [text]="true" [raised]="true" (onClick)="cd.reject()"></p-button>
+                <p-button icon="pi pi-check" [rounded]="true" [text]="true" [raised]="true" (onClick)="cd.accept()"></p-button>
+         </div>
+        </div>
+    </ng-template>
+    <ng-template pTemplate="footer">
+    </ng-template>
+</p-confirmDialog>

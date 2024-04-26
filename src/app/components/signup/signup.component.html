@@ -1,0 +1,45 @@
+<div class="horizontal">
+    <div class="tamano-imagen">
+        <img src="../../../assets/image.png">
+    </div>
+
+    <div class="vertical ancho-contenido alinear-verticalcontenido alinear-horizontalcontenido" style="gap: 30px;">
+
+        <div>
+            <img src="../../../assets/images.png">
+        </div>
+        <!-- -->
+        <div>
+            <span class="p-float-label">
+                <input type="text" pInputText id="fullName" [(ngModel)]="signUpObj.fullName" maxlength="16" minlength="6" [pKeyFilter]="fullNameRegexp" />
+                <label for="fullName">Nombre completo</label>
+            </span>
+        </div>
+        <div>
+            <span class="p-float-label">
+                <input type="text" pInputText id="username" [(ngModel)]="signUpObj.username" maxlength="16" minlength="6" [pKeyFilter]="'alphanum'" />
+                <label for="username">Usuario</label>
+            </span>
+        </div>
+        <div>
+            <span class="p-float-label">
+                <input type="password" pInputText id="password" [(ngModel)]="signUpObj.password" maxlength="16" minlength="6" [pKeyFilter]="'alphanum'"/>
+                <label for="password">Contraseña</label>
+            </span>
+        </div>
+        <div>
+            <span class="p-float-label">
+                <input type="password" pInputText id="passwordConfirm" [(ngModel)]="signUpObj.passwordConfirm" maxlength="16" minlength="6" [pKeyFilter]="'alphanum'"/>
+                <label for="passwordConfirm">Confirmar contraseña</label>
+            </span>
+        </div>
+        <div>
+            <p-button label="Registrarse" [disabled]="!validateForm()" (onClick)="signup($event)" [raised]="true"></p-button>
+        </div>
+        <div class="alinear-verticalcontenido">
+            <span class="alinear-verticalcontenido" style="align-items: center; margin-right: 10px;">Si ya tiene una cuenta haga clic</span>
+            <p-button label="Aquí" [link]="true" (onClick)="navigateToLogin($event)"></p-button>
+        </div>
+        
+    </div>
+</div>
