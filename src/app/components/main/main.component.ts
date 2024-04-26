@@ -13,7 +13,7 @@ export class MainComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    
+    this._router.navigate(["main/panel"]);
   }
 
   onMenuClick($event: any) {
