@@ -1,14 +1,14 @@
 {
   "targets": {
-    "tasks-a20a1": {
+    "tareas-c0e47": {
       "hosting": {
         "tasksfe": [
-          "tasks-a20a1"
+          "tareas-c0e47"
         ]
       }
     }
   },
   "projects": {
-    "default": "tasks-a20a1"
+    "default": "tareas-c0e47"
   }
 }

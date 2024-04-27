@@ -4,3 +4,8 @@ export enum AUTH_CODES {
     ALREADY_EXISTS_ERROR,
     CREDENTIALS_ERROR
 }
+
+export enum TASK_CODES {
+    OK,
+    GENERAL_ERROR
+}

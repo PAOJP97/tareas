@@ -17,17 +17,17 @@
         </div>
         <div style="display: flex; justify-content: center;">
             <span class="p-float-label">
-                <p-calendar id="dueDate" [(ngModel)]="tarea.dueDate"></p-calendar>
+                <p-calendar id="dueDate" [(ngModel)]="tarea.dueDate" [minDate]="today"></p-calendar>
                 <label for="dueDate">Fecha de vencimiento</label>
             </span>
         </div>
         <div *ngIf="item" class="checkbox">
-            <p-checkbox id="status" [binary]="true" [(ngModel)]="completado"></p-checkbox>
+            <p-checkbox id="status" [binary]="true" [(ngModel)]="completado" [disabled]="!enableChangeStatus"></p-checkbox>
             <label for="status">¿Completado?</label>
         </div>
     </div>
     <div class="form-options">
         <p-button icon="pi pi-times" [rounded]="true" [text]="true" [raised]="true" (onClick)="closeForm()"></p-button>
-        <p-button icon="pi pi-check" [rounded]="true" [text]="true" [raised]="true" (onClick)="executeAction()"></p-button>
+        <p-button icon="pi pi-check" [rounded]="true" [text]="true" [raised]="true" (onClick)="executeAction()" [disabled]="!validateForm()"></p-button>
     </div>
 </div>

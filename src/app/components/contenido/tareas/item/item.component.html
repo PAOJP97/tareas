@@ -1,10 +1,10 @@
 <div *ngIf="!item.addNew" class="item-content">
     <div class="little-buttons">
         <p-button icon="pi pi-pencil" [rounded]="true" [text]="true" [raised]="true" (onClick)="editItem()"></p-button>
-        <p-button icon="pi pi-trash" [rounded]="true" [text]="true" [raised]="true" (onClick)="deleteItem()"></p-button>
+        <p-button icon="pi pi-trash" [rounded]="true" [text]="true" [raised]="true" (onClick)="deleteItem($event)"></p-button>
     </div>
     <p-card>
-        <div class="item-title" [ngStyle]="{'background': (item.status === 'Completada')? '#09b614' : '#f9ba32' }">
+        <div class="item-title" [ngStyle]="{'background': (item.status === 'Completado')? '#09b614' : '#f9ba32' }">
             <span>{{item.title}}</span>
         </div>
         <div class="item-organizer">

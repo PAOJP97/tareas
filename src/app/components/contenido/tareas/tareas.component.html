@@ -2,27 +2,30 @@
     <div style="width: 50%;">
         <span class="p-float-label p-input-icon-right" style="width: 100%;">
             <i class="pi pi-search"></i>
-            <input id="texto" type="text" pInputText [(ngModel)]="searchInput" style="width: 100%;"/>
+            <input id="texto" type="text" pInputText [(ngModel)]="searchInput" style="width: 100%;" (ngModelChange)="applyFilters()"/>
             <label for="texto">Titulo o Descripcion</label>
         </span>
     </div>
     <div>
         <span class="p-float-label">
-            <p-calendar id="fecha" [(ngModel)]="searchDueDate"></p-calendar>
+            <p-calendar id="fecha" [(ngModel)]="searchDueDate" (ngModelChange)="applyFilters()"></p-calendar>
             <label for="fecha">Fecha de vencimiento</label>
         </span>
+    </div>
+    <div>
+        <p-button icon="pi pi-trash" [rounded]="true" [text]="true" [raised]="true" (onClick)="resetFilters()"></p-button>
     </div>
 </p-toolbar>
 
 <div class="row" style="margin: 10px;">
-    <div *ngFor="let task of tasks" class="col-4">
+    <div *ngFor="let task of filteredTasks" class="col-4">
         <tareas-item [item]="task" (onAddItem)="displayForm($event)" (onEditItem)="displayForm($event)" (onDeleteItem)="displayDeleteConfirmation($event)"></tareas-item>
     </div>
 </div>
 
 <p-sidebar [(visible)]="showForm" position="right" [style]="{'width': '400px'}">
     <ng-template pTemplate="headless">
-        <formulario (onCloseForm)="closeForm($event)" [item]="selectedItem"></formulario>
+        <formulario (onCloseForm)="closeForm($event)" [item]="selectedItem" [id]="taskCount"></formulario>
     </ng-template>
 </p-sidebar>
 

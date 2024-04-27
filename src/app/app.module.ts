@@ -27,12 +27,16 @@ import { ItemComponent } from './components/contenido/tareas/item/item.component
 import { CardModule } from 'primeng/card';
 import { DatePipe } from '@angular/common';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { FormularioComponent } from './components/contenido/tareas/formulario/formulario.component';
 import { SidebarModule } from 'primeng/sidebar';
 import { CheckboxModule } from 'primeng/checkbox';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { AuthenticationServices } from './services/authentication/authentication.services';
+import { TaskServices } from './services/tasks/task.services';
+import { LoadingComponent } from './components/global/loading.component';
+import { LoadingServices } from './services/loading/loading.services';
 
 
 @NgModule({
@@ -46,7 +50,8 @@ import { AuthenticationServices } from './services/authentication/authentication
     PanelComponent,
     TareasComponent,
     ItemComponent,
-    FormularioComponent
+    FormularioComponent,
+    LoadingComponent
   ],
   imports: [
     BrowserModule,
@@ -65,9 +70,17 @@ import { AuthenticationServices } from './services/authentication/authentication
     ConfirmDialogModule,
     SidebarModule,
     CheckboxModule,
+    ProgressSpinnerModule, 
     InputTextareaModule,
     FirestoreModule,
-    provideFirebaseApp(() => initializeApp({"projectId":"tasks-a20a1","appId":"1:273384349763:web:8cfefebc319baf62a474f6","storageBucket":"tasks-a20a1.appspot.com","apiKey":"AIzaSyD4H9i1UTXqlwQdMUVzK7pcIGJj0Ec6Th8","authDomain":"tasks-a20a1.firebaseapp.com","messagingSenderId":"273384349763"})),
+    provideFirebaseApp(() => initializeApp({
+      apiKey: "AIzaSyD8UBWqYZyJ_fUt1gASWnQ7o6xBDVcpfgw",
+      authDomain: "tareas-c0e47.firebaseapp.com",
+      projectId: "tareas-c0e47",
+      storageBucket: "tareas-c0e47.appspot.com",
+      messagingSenderId: "599086496761",
+      appId: "1:599086496761:web:dc536545e32dee741ddb28"
+      })),
     provideFirestore(() => getFirestore()),
     provideFunctions(() => getFunctions())
   ],
@@ -75,7 +88,9 @@ import { AuthenticationServices } from './services/authentication/authentication
     DatePipe,
     ConfirmationService,
     MessageService,
-    AuthenticationServices
+    AuthenticationServices,
+    TaskServices,
+    LoadingServices
   ],
   bootstrap: [AppComponent]
 })

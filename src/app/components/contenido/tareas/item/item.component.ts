@@ -26,8 +26,8 @@ export class ItemComponent implements OnInit {
     this.onEditItem.emit(this.item);
   }
   
-  deleteItem() {
-    this.onDeleteItem.emit(this.item);
+  deleteItem($event: any) {
+    this.onDeleteItem.emit({event: $event, item: this.item});
   }
 }
 
